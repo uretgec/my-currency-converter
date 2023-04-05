@@ -12,7 +12,7 @@
 #myCurrencyConverter .toast {
     width: 300px;
     max-width: 100%;
-    font-size: 1rem;
+    font-size: 12px;
     pointer-events: auto;
     background-color: rgba(255, 255, 255, 1);
     background-clip: padding-box;
@@ -21,16 +21,16 @@
     border-radius: 0.375rem;
 }
 
-#myCurrencyConverter .toast.showing {
+/* #myCurrencyConverter .toast.showing {
     opacity: 0;
-}
+} */
 
 #myCurrencyConverter .toast:not(.show) {
     display: none;
 }
 
 #myCurrencyConverter .toast-container {
-    position: absolute;
+    position: fixed;
     z-index: 1090;
     width: -webkit-max-content;
     width: -moz-max-content;
@@ -39,14 +39,14 @@
     pointer-events: none;
 }
 
-#myCurrencyConverter .toast-container> :not(:last-child) {
+/* #myCurrencyConverter .toast-container> :not(:last-child) {
     margin-bottom: 1.5rem;
-}
+} */
 
 #myCurrencyConverter .toast-header {
     display: flex;
     align-items: center;
-    padding: 0.5rem 0.75rem;
+    padding: 1rem 0.75rem 0.75rem 0.75rem;
     color: rgba(33, 37, 41, 0.75);
     background-color: #f8f8f8;
     background-clip: padding-box;
@@ -58,6 +58,7 @@
 #myCurrencyConverter .toast-header .btn-close {
     margin-right: calc(-0.5 * 0.75rem);
     margin-left: 0.75rem;
+    line-height: 10px;
 }
 
 #myCurrencyConverter .toast-body {
@@ -65,6 +66,8 @@
     word-wrap: break-word;
     background-color: rgba(255, 255, 255, 0.85);
     color: rgba(33, 37, 41, 0.75);
+    max-height: 200px;
+    overflow-y: scroll;
 }
 
 #myCurrencyConverter .toast-footer {
@@ -82,32 +85,40 @@
 #myCurrencyConverter .toast-footer .btn-disable {
     margin-right: calc(-0.5 * 0.75rem);
     margin-left: 0.75rem;
+    line-height: 10px;
+    width: 100%;
+}
+
+/*toast enable*/
+#myCurrencyConverter .toast-enable {
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 1091;
+    /* width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    max-width: 100%; */
+}
+
+#myCurrencyConverter .toast-enable:not(.show) {
+    display: none;
+}
+
+#myCurrencyConverter .toast-enable .btn-enable {
+    margin-right: calc(-0.5 * 0.75rem);
+    margin-left: 0.75rem;
+    font-size: 24px;
+    line-height: 20px;
 }
 
 /*position*/
-#myCurrencyConverter .position-static {
-    position: static !important;
-}
-
-#myCurrencyConverter .position-relative {
-    position: relative !important;
-}
-
-#myCurrencyConverter .position-absolute {
-    position: absolute !important;
-}
-
-#myCurrencyConverter .position-fixed {
-    position: fixed !important;
-}
-
-#myCurrencyConverter .position-sticky {
-    position: -webkit-sticky !important;
-    position: sticky !important;
-}
-
 #myCurrencyConverter .bottom {
     bottom: 45px !important;
+}
+
+#myCurrencyConverter .bottom-up {
+    bottom: 55px !important;
 }
 
 #myCurrencyConverter .end {
@@ -121,28 +132,54 @@
 
 /*padding*/
 #myCurrencyConverter .p-3 {
-    padding: 1rem !important;
+    padding-right: 1rem !important;
+    padding-bottom: 0.7rem !important;
 }
 
 /*button-close*/
-#myCurrencyConverter .btn-close {
+#myCurrencyConverter .btn-close,
+#myCurrencyConverter .btn-disable {
     box-sizing: content-box;
     width: 1em;
     height: 1em;
     padding: 0.25em 0.25em;
     color: #000;
-    border: 0;
+    border: 1px solid #ccc;
     border-radius: 0.375rem;
     opacity: 0.5;
 }
 
-#myCurrencyConverter .btn-close:hover {
-    color: #000;
-    text-decoration: none;
-    opacity: 0.75;
+#myCurrencyConverter .btn-enable {
+    box-sizing: content-box;
+    /* width: 1em;
+    height: 1em; */
+    padding: 0.25em 0.25em;
+    color: #fff;
+    /* border: 0; */
+    border-radius: 0.375rem;
+    background-color: rgb(251, 99, 64);
+    box-shadow: rgba(50, 50, 93, 0.11) 0px 4px 6px, rgba(0, 0, 0, 0.08) 0px 1px 3px;
+    border-color: rgb(251, 99, 64);
+    /* opacity: 0.5; */
 }
 
-#myCurrencyConverter .btn-close:focus {
+#myCurrencyConverter .btn-close:hover,
+#myCurrencyConverter .btn-disable:hover,
+#myCurrencyConverter .btn-enable:hover {
+    text-decoration: none;
+    opacity: 0.90;
+    color: rgb(255, 255, 255);
+    background-color: rgb(250, 68, 27);
+    border-color: rgb(250, 58, 14);
+}
+
+#myCurrencyConverter .btn-enable:hover {
+    transform: translateY(-1px);
+}
+
+#myCurrencyConverter .btn-close:focus,
+#myCurrencyConverter .btn-disable:focus,
+#myCurrencyConverter .btn-enable:focus {
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
     opacity: 1;
@@ -187,8 +224,7 @@
     display: flex;
     flex-direction: column;
     padding-left: 0;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 #myCurrencyConverter .list-group-item {
@@ -212,13 +248,15 @@
 /*badge*/
 #myCurrencyConverter .badge {
     display: inline-block;
-    padding: 0.35em 0.65em;
+    padding: 0.35em 0 0.35em 0.65em;
+    margin: 0;
     line-height: 1;
     color: #212529;
-    text-align: center;
+    text-align: right;
     white-space: nowrap;
     vertical-align: baseline;
     border-radius: 0.375rem;
+    background: none;
 }
 
 #myCurrencyConverter .badge:empty {

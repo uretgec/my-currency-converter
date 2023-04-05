@@ -8,6 +8,7 @@ MyCCManager.prototype.selectedNumber = 0
 MyCCManager.prototype.selectedNumberFixed = 2
 MyCCManager.prototype.selectedCurrency = {}
 MyCCManager.prototype.exchangeRatesKey = "exchange_rates"
+MyCCManager.prototype.myCCDisabledKey = "mycc_disabled"
 MyCCManager.prototype.exchangeRatesKeyTTL = 10
 MyCCManager.prototype.exchangeRates = {}
 MyCCManager.prototype.isDebugActive = function() {
@@ -17,20 +18,23 @@ MyCCManager.prototype.isDebugActive = function() {
 // toast template
 MyCCManager.prototype.getToastTemplate = function() {
     return `<div id="myCurrencyConverter">
-    <div class="toast-container position-fixed bottom end p-3">
-    <div class="toast fade">
-      <div class="toast-header">
-        <strong class="me-auto"></strong>
-        <small></small>
-        <button type="button" class="btn-close">&#x2715;</button>
-      </div>
-      <div class="toast-body"></div>
-      <div class="toast-footer">
-        <small class="me-auto"></small>
-        <button type="button" class="btn-disable">Disabled</button>
-      </div>
-    </div>
-  </div></div>`
+        <div class="toast-container bottom end p-3">
+            <div class="toast fade">
+                <div class="toast-header">
+                    <strong class="me-auto"></strong>
+                    <small></small>
+                    <button type="button" class="btn-close">&#x2715;</button>
+                </div>
+                <div class="toast-body"></div>
+                <div class="toast-footer">
+                    <button type="button" class="btn-disable" title="Deactivate extension">&#10564; Deactivate Extension &#10562;</button>
+                </div>
+            </div>
+        </div>
+        <div class="toast-enable bottom-up end">
+            <button type="button" class="btn-enable" title="Activate extension">&#10564;</button>
+        </div>
+    </div>`
 }
 
 // toast currency list template
@@ -58,7 +62,7 @@ MyCCManager.prototype.getCurrencyItemTemplate = function(currency) {
     // console.log("çevrim", this.selectedNumber, currency.currencyname, currency.banknotebuying, (this.selectedNumber/currency.banknotebuying).toFixed(this.selectedNumberFixed))
     return '<li class="list-group-item" title="' + currency.currencyname + '">'
         + '<div class="me-auto">' + currency.currencycode + '</div>'
-        + '<span class="badge bg-primary rounded-pill">' + this.currencyFormat(currency.currencycode, (this.selectedNumber/currency.banknotebuying).toFixed(this.selectedNumberFixed)) + '</span>' 
+        + '<span class="badge">' + this.currencyFormat(currency.currencycode, (this.selectedNumber/currency.banknotebuying).toFixed(this.selectedNumberFixed)) + '</span>' 
         + '</li>'
 }
 
@@ -171,7 +175,7 @@ MyCCManager.prototype.getSelectedText = function() {
                 crossorder: "0",
                 kod: "TRY",
                 currencycode: "TRY",
-                currencyname: "Türk Lirası",
+                currencyname: "Turkish Lira",
                 unit: "1",
                 banknotebuying: "1"
             }
