@@ -1,10 +1,10 @@
 # My Currency Converter Browser Extension
 Select the text you want to convert.
 
-![screenshot](promo-images/v2/my-ph-dark-mode-no-click2.jpeg)
+![screenshot](promo-images/-.jpeg)
 
 ## Feature
-- (NEW) Currency Converter Dark Mode is ready to use
+- (NEW) Currency Converter is ready to use
 
 ## Compatibility
 - Chrome (Manifestv3)
@@ -15,8 +15,9 @@ Select the text you want to convert.
 
 ### Chrome Store/Firefox Add-Ons
 
-Go to [My Currency Converter](https://chrome.google.com/webstore/detail/jbchipnpikoidnjdgmjdipiandcjhilp) Chrome Store Page
-Go to [My Currency Converter](https://addons.mozilla.org/en-US/firefox/addon/my-product-hunt/) Firefox Add-Ons Page
+Go to [My Currency Converter](https://chrome.google.com/webstore/detail/) Chrome Store Page
+
+Go to [My Currency Converter](https://addons.mozilla.org/en-US/firefox/addon/) Firefox Add-Ons Page
 
 ### Local Development
 
