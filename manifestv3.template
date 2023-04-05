@@ -1,0 +1,40 @@
+{
+    "manifest_version": 3,
+    "name": "My Currency Converter",
+    "short_name": "My CC",
+    "description": "Select the text you want to convert",
+    "version": "BUILD_NUMBER",
+    "homepage_url": "https://github.com/uretgec/my-currency-converter",
+    "permissions": [
+        "webNavigation",
+        "storage"
+    ],
+    "host_permissions": [
+        "https://www.tcmb.gov.tr/kurlar/today.xml"
+    ],
+    "icons": { 
+        "16": "icons/16.png",   
+        "32": "icons/32.png",
+        "128": "icons/128.png" 
+    },
+    "author": "Uretgec",
+    "offline_enabled": false,
+    "content_scripts": [
+        {
+            "matches": ["http://*/*", "https://*/*"],
+            "css": ["myStyles.css"],
+            "run_at": "document_idle"
+        },
+        {
+          "matches":  ["http://*/*", "https://*/*"],
+          "js": ["lib/ccmanager.js","contentScript.js"],
+          "run_at": "document_start"
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "externally_connectable": {
+        "matches": ["https://www.tcmb.gov.tr/kurlar/today.xml"]
+    }
+  }

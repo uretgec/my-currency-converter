@@ -1,0 +1,34 @@
+{
+    "manifest_version": 2,
+    "name": "My Currency Converter - DEVELOPMENT BUILD",
+    "short_name": "My CC",
+    "description": "THIS EXTENSION IS FOR BETA TESTING",
+    "version": "BUILD_NUMBER",
+    "homepage_url": "https://github.com/uretgec/my-currency-converter",
+    "permissions": [
+        "webNavigation",
+        "storage"
+    ],
+    "icons": { 
+        "16": "icons/16.png",   
+        "32": "icons/32.png",
+        "128": "icons/128.png" 
+    },
+    "author": "Uretgec",
+    "content_scripts": [
+        {
+            "matches": ["http://*/*", "https://*/*"],
+            "css": ["myStyles.css"],
+            "run_at": "document_idle"
+        },
+        {
+          "matches":  ["http://*/*", "https://*/*"],
+          "js": ["lib/ccmanager.js","contentScript.js"],
+          "run_at": "document_start"
+        }
+    ],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true
+    }
+  }
