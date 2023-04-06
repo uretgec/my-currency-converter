@@ -10,6 +10,7 @@ BUILD_NUMBER_OLD="$(cat $WHEREIAM/VERSION)"
 ENV="${ARGS[0]}" # dev|prod
 BUILD_NUMBER_NEW="${ARGS[1]}"
 MANIFEST_VERSION="${ARGS[2]}" # 3: Chrome, 2: Firefox
+EXTENSION_NAME="my-currency-converter"
 
 # sed Checker
 if [ -x "$(command -v sed)" ]
@@ -36,8 +37,8 @@ if [ -x "$(command -v zip)" ]
 then
     mkdir -p $WHEREIAM/build/$ENV/$BUILD_NUMBER_NEW
     cd $WHEREIAM/extension
-    zip -r $WHEREIAM/build/$ENV/$BUILD_NUMBER_NEW/my-product-hunt-$BUILD_NUMBER_NEW-v$MANIFEST_VERSION.zip * -x "*.DS_Store" -x "__MACOSX" -x "*_original.css"
-    echo "Extension folder compressed: my-product-hunt-$BUILD_NUMBER_NEW-v$MANIFEST_VERSION.zip"
+    zip -r $WHEREIAM/build/$ENV/$BUILD_NUMBER_NEW/$EXTENSION_NAME-$BUILD_NUMBER_NEW-v$MANIFEST_VERSION.zip * -x "*.DS_Store" -x "__MACOSX" -x "*_original.css"
+    echo "Extension folder compressed: $EXTENSION_NAME-$BUILD_NUMBER_NEW-v$MANIFEST_VERSION.zip"
 
 else
 

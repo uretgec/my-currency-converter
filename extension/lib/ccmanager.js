@@ -9,7 +9,7 @@ MyCCManager.prototype.selectedNumberFixed = 2
 MyCCManager.prototype.selectedCurrency = {}
 MyCCManager.prototype.exchangeRatesKey = "exchange_rates"
 MyCCManager.prototype.myCCDisabledKey = "mycc_disabled"
-MyCCManager.prototype.exchangeRatesKeyTTL = 10
+MyCCManager.prototype.exchangeRatesKeyTTL = 3600
 MyCCManager.prototype.exchangeRates = {}
 MyCCManager.prototype.isDebugActive = function() {
     return this.ccDebugMode
@@ -32,7 +32,7 @@ MyCCManager.prototype.getToastTemplate = function() {
             </div>
         </div>
         <div class="toast-enable bottom-up end">
-            <button type="button" class="btn-enable" title="Activate extension">&#10564;</button>
+            <button type="button" class="btn-enable" title="Activate My Currency Converter Extension">&#10564;</button>
         </div>
     </div>`
 }
@@ -136,6 +136,10 @@ MyCCManager.prototype._convertXmlToJson = function(xml) {
 
 // get selected text
 // via: https://www.geeksforgeeks.org/how-to-get-the-highlighted-selected-text-in-javascript/
+// NOTES:
+/**
+ * BUG: If User select only . and , characters, regex code is explode!!!!
+ */
 MyCCManager.prototype.getSelectedText = function() {
     let selectedText = ''
 

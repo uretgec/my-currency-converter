@@ -1,10 +1,15 @@
 # My Currency Converter Browser Extension
-Select the text you want to convert.
+It allows you to convert the prices you choose on the websites to other currencies using daily exchange rates in different currencies.
 
 ![screenshot](promo-images/-.jpeg)
 
-## Feature
-- (NEW) Currency Converter is ready to use
+## Features
+- Double-click or select the currency text you want to convert.
+- Finds currencies in long texts.
+- It only supports conversion from Turkish Lira (TRY) to other currencies.
+- Uses "TCMB" daily exchange rates. (Checks every 1 hour cycle and cache it)
+- Just click the "Deactivate Extension" button to deactivate the plugin at any time.
+- Click the orange button in the lower right corner to activate the plugin again.
 
 ## Compatibility
 - Chrome (Manifestv3)
@@ -31,7 +36,7 @@ Go to [My Currency Converter](https://addons.mozilla.org/en-US/firefox/addon/) F
 6. Go to any website
 
 ### Usage
-- In the right corner of the browser,
+- Double click or select any text
 
 ## Licence
 See LICENSE for more details.

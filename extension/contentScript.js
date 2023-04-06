@@ -2,7 +2,7 @@
 
 // Init Managers
 const myCCManager = new MyCCManager();
-myCCManager.ccDebugMode = true;
+// myCCManager.ccDebugMode = true;
 
 // document load
 window.addEventListener("DOMContentLoaded", async function (evt) {

@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
     "name": "My Currency Converter",
-    "short_name": "My CC",
-    "description": "Select the text you want to convert",
+    "short_name": "MyCC",
+    "description": "Double-click or select the currency text you want to convert.",
     "version": "1.0.0",
     "homepage_url": "https://github.com/uretgec/my-currency-converter",
     "permissions": [
@@ -23,7 +23,7 @@
         {
             "matches": ["http://*/*", "https://*/*"],
             "css": ["myStyles.css"],
-            "run_at": "document_end"
+            "run_at": "document_idle"
         },
         {
           "matches":  ["http://*/*", "https://*/*"],

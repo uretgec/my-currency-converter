@@ -68,6 +68,7 @@
     color: rgba(33, 37, 41, 0.75);
     max-height: 200px;
     overflow-y: scroll;
+    padding: 0;
 }
 
 #myCurrencyConverter .toast-footer {
@@ -114,11 +115,11 @@
 
 /*position*/
 #myCurrencyConverter .bottom {
-    bottom: 45px !important;
+    bottom: 55px !important;
 }
 
 #myCurrencyConverter .bottom-up {
-    bottom: 55px !important;
+    bottom: 65px !important;
 }
 
 #myCurrencyConverter .end {
@@ -167,7 +168,7 @@
 #myCurrencyConverter .btn-disable:hover,
 #myCurrencyConverter .btn-enable:hover {
     text-decoration: none;
-    opacity: 0.90;
+    opacity: 1;
     color: rgb(255, 255, 255);
     background-color: rgb(250, 68, 27);
     border-color: rgb(250, 58, 14);
@@ -234,7 +235,9 @@
     padding: 0.5rem 0.5rem;
     color: #212529;
     text-decoration: none;
+    border: 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.175);
+    border-radius: 0;
 }
 
 #myCurrencyConverter .list-group-item:last-child {
