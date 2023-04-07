@@ -20,9 +20,9 @@ It allows you to convert the prices you choose on the websites to other currenci
 
 ### Chrome Store/Firefox Add-Ons
 
-Go to [My Currency Converter](https://chrome.google.com/webstore/detail/) Chrome Store Page
+Go to [My Currency Converter](https://chrome.google.com/webstore/detail/fpkokkdkdhhpcofhplgkhmmiecemfidb) Chrome Store Page
 
-Go to [My Currency Converter](https://addons.mozilla.org/en-US/firefox/addon/) Firefox Add-Ons Page
+Go to [My Currency Converter](https://addons.mozilla.org/en-US/firefox/addon/my-currency-converter/) Firefox Add-Ons Page
 
 ### Local Development
 
