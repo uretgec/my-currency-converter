@@ -6,7 +6,6 @@
     "version": "BUILD_NUMBER",
     "homepage_url": "https://github.com/uretgec/my-currency-converter",
     "permissions": [
-        "webNavigation",
         "storage"
     ],
     "host_permissions": [

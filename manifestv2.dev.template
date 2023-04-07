@@ -7,7 +7,6 @@
     "homepage_url": "https://github.com/uretgec/my-currency-converter",
     "permissions": [
         "https://www.tcmb.gov.tr/kurlar/today.xml",
-        "webNavigation",
         "storage"
     ],
     "icons": { 
