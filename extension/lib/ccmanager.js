@@ -141,6 +141,10 @@ MyCCManager.prototype._convertXmlToJson = function(xml) {
  * BUG: If User select only . and , characters, regex code is explode!!!!
  */
 MyCCManager.prototype.getSelectedText = function() {
+    // reset all selected text var
+    this.resetSelectedText()
+
+    // declare var
     let selectedText = ''
 
     if (window.getSelection) {
@@ -160,7 +164,7 @@ MyCCManager.prototype.getSelectedText = function() {
 
     if (selectedText.length > 0 && selectedText != this.selectedText) {
         // check selected text must be Number: extract only numeric value
-        const regex = /[\d.,]+/g;
+        const regex = /[\d]([\d.]|[\d.,])+/g; // Old One: /[\d.,]+/g;
         const numericVal = regex.exec(selectedText)
         //console.log("NNOOOOOO", numericVal);
         if (!!numericVal && numericVal.length > 0) {
@@ -189,4 +193,35 @@ MyCCManager.prototype.getSelectedText = function() {
     }
 
     return false
+}
+
+MyCCManager.prototype.resetSelectedText = function () {
+    this.selectedText = ""
+    this.selectedNumber = 0
+    this.selectedNumberFixed = 2
+}
+
+// find selected text element node
+// Via: https://stackoverflow.com/a/1335347
+MyCCManager.prototype.getSelectedElement = function() {
+    if (window.getSelection) {
+        // window.getSelection
+        let selection = window.getSelection()
+        if (selection.rangeCount > 0) {
+            return selection.getRangeAt(0).startContainer.parentNode
+        }
+    } else if (document.getSelection) {
+        // document.getSelection
+        return document.selection().createRange().parentElement()
+    } else if (document.selection) {
+        // document.selection
+        return document.selection.createRange().parentElement()
+    }
+
+    return null
+}
+
+MyCCManager.prototype.focusCCContainer = function() {
+    let el = myCCManager.getSelectedElement()
+    return !!el && !!el.closest("#myCurrencyConverter")
 }

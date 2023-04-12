@@ -3,7 +3,7 @@
     "name": "My Currency Converter",
     "short_name": "MyCC",
     "description": "Double-click or select the currency text you want to convert.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "homepage_url": "https://github.com/uretgec/my-currency-converter",
     "permissions": [
         "storage"
