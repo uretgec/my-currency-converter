@@ -52,8 +52,9 @@ window.addEventListener("DOMContentLoaded", async function (evt) {
 
 // via: https://w3c.github.io/selection-api/#dom-window-getselection
 document.addEventListener("selectionchange", async function (evt) {
-    //console.log("Archor node - ", window.getSelection().anchorNode, window.getSelection());
-    //console.log("Focus Node - ", myCCManager.getSelectedText());
+    if (myCCManager.isDebugActive())console.log("Archor node - ", window.getSelection().anchorNode, window.getSelection());
+    if (myCCManager.isDebugActive())console.log("Focus Node - ", myCCManager.selectedText);
+
     let myCCDisabled = await chrome.storage.local.get([myCCManager.myCCDisabledKey]);
     if (myCCDisabled.hasOwnProperty(myCCManager.myCCDisabledKey)) {
         if (myCCManager.isDebugActive()) console.log("content-script","disabled",myCCManager.myCCDisabledKey, myCCDisabled[myCCManager.myCCDisabledKey]);
@@ -136,5 +137,12 @@ document.addEventListener("selectionchange", async function (evt) {
         }
 
         document.querySelector("#myCurrencyConverter .toast").classList.add("show");
+    } else {
+        if (myCCManager.focusCCContainer()) {
+            if (myCCManager.isDebugActive()) console.log("focus #myCurrencyConverter")
+        } else {
+            if (myCCManager.isDebugActive()) console.log("not focus #myCurrencyConverter")
+            document.querySelector("#myCurrencyConverter .btn-close").click()
+        }
     }
 });
