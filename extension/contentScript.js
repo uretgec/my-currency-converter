@@ -52,7 +52,7 @@ window.addEventListener("DOMContentLoaded", async function (evt) {
 
 // via: https://w3c.github.io/selection-api/#dom-window-getselection
 document.addEventListener("selectionchange", async function (evt) {
-    if (myCCManager.isDebugActive())console.log("Archor node - ", window.getSelection().anchorNode, window.getSelection());
+    //if (myCCManager.isDebugActive())console.log("Archor node - ", window.getSelection().anchorNode, window.getSelection());
     if (myCCManager.isDebugActive())console.log("Focus Node - ", myCCManager.selectedText);
 
     let myCCDisabled = await chrome.storage.local.get([myCCManager.myCCDisabledKey]);
@@ -134,15 +134,14 @@ document.addEventListener("selectionchange", async function (evt) {
             toastTemplate.querySelector(".toast-header small").textContent = exchangeRates.meta.date;
             toastTemplate.querySelector(".toast-body").innerHTML = myCCManager.getCurrencyListTemplate(Object.values(exchangeRates.currency));
             toastTemplate.querySelector(".toast-body ul.list-group").insertAdjacentHTML("afterbegin", myCCManager.getCurrencyItemTemplate(myCCManager.selectedCurrency));
+            toastTemplate.querySelector(".toast").classList.add("show");
         }
-
-        document.querySelector("#myCurrencyConverter .toast").classList.add("show");
     } else {
         if (myCCManager.focusCCContainer()) {
             if (myCCManager.isDebugActive()) console.log("focus #myCurrencyConverter")
         } else {
             if (myCCManager.isDebugActive()) console.log("not focus #myCurrencyConverter")
-            document.querySelector("#myCurrencyConverter .btn-close").click()
+            document.querySelector("#myCurrencyConverter .toast").classList.remove("show");
         }
     }
 });
