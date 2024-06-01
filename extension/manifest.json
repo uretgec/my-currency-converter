@@ -2,8 +2,8 @@
     "manifest_version": 3,
     "name": "My Currency Converter",
     "short_name": "MyCC",
-    "description": "Double-click or select the currency text you want to convert.",
-    "version": "1.0.2",
+    "description": "Just select the currency you want to convert",
+    "version": "1.0.3",
     "homepage_url": "https://github.com/uretgec/my-currency-converter",
     "permissions": [
         "storage"
