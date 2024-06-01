@@ -5,6 +5,7 @@
  */
 #myCurrencyConverter button {
     background: none;
+    text-align: center;
 }
 
 #myCurrencyConverter small,
@@ -14,7 +15,7 @@
 
 /*toast*/
 #myCurrencyConverter .toast {
-    width: 300px;
+    width: 250px;
     max-width: 100%;
     font-size: 12px;
     pointer-events: auto;
@@ -42,7 +43,7 @@
 #myCurrencyConverter .toast-header {
     display: flex;
     align-items: center;
-    padding: 1rem 0.75rem 0.75rem 0.75rem;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
     color: rgba(33, 37, 41, 0.75);
     background-color: #f8f8f8;
     background-clip: padding-box;
@@ -79,8 +80,7 @@
 }
 
 #myCurrencyConverter .toast-footer .btn-disable {
-    margin-right: calc(-0.5 * 0.75rem);
-    margin-left: 0.75rem;
+    font-size: 12px;
     line-height: 10px;
     width: 100%;
 }
@@ -218,8 +218,9 @@
 #myCurrencyConverter .list-group-item {
     position: relative;
     display: flex !important;
+    font-size: 12px;
     align-items: flex-start;
-    padding: 0.5rem 0.5rem;
+    padding: 0.25rem 0.5rem;
     color: #212529;
     text-decoration: none;
     border: 0;
