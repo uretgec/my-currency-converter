@@ -18,9 +18,11 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.name === "exchange-rates") {
     fetch(_findUrlFromManifest(), {
       method: "GET",
-      headers: {
-        "content-type": "text/xml",
-      },
+      redirect: "follow",
+      credentials: 'include', // header cookie accept
+      // headers: {
+      //   "content-type": "text/xml",
+      // },
     })
       .then((resp) => resp.text())
       .then((data) => {
