@@ -9,7 +9,7 @@ MyCCManager.prototype.selectedNumberFixed = 2
 MyCCManager.prototype.selectedCurrency = {}
 MyCCManager.prototype.exchangeRatesKey = "exchange_rates"
 MyCCManager.prototype.myCCDisabledKey = "mycc_disabled"
-MyCCManager.prototype.exchangeRatesKeyTTL = 3600
+MyCCManager.prototype.exchangeRatesKeyTTL = 1800
 MyCCManager.prototype.exchangeRates = {}
 MyCCManager.prototype.isDebugActive = function() {
     return this.ccDebugMode
