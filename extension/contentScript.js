@@ -84,15 +84,19 @@ document.addEventListener("selectionchange", async function (evt) {
                 const xml = parser.parseFromString(exchangeRatesResponse.result,"application/xml");
                 exchangeRates = myCCManager._convertXmlToJson(xml);
 
-                // Unix timestamp: seconds + lifetime (ttl)
-                exchangeRates["ttl"] = now + myCCManager.exchangeRatesKeyTTL;
+                if (exchangeRates.hasOwnProperty("meta")) {
+                    // Unix timestamp: seconds + lifetime (ttl)
+                    exchangeRates["ttl"] = now + myCCManager.exchangeRatesKeyTTL;
 
-                // save exchange rates to local storage
-                let exchangeRatesData = {};
-                exchangeRatesData[myCCManager.exchangeRatesKey] = exchangeRates;
-                chrome.storage.local.set(exchangeRatesData);
-                
-                if (myCCManager.isDebugActive()) console.log("exchangeRatesData", "saved", "storage");
+                    // save exchange rates to local storage
+                    let exchangeRatesData = {};
+                    exchangeRatesData[myCCManager.exchangeRatesKey] = exchangeRates;
+                    chrome.storage.local.set(exchangeRatesData);
+
+                    if (myCCManager.isDebugActive()) console.log("exchangeRatesData", "saved", "storage");
+                } else {
+                    if (myCCManager.isDebugActive()) console.log("exchangeRatesResponse", "error", "not parsed");
+                }
             } else {
                 if (myCCManager.isDebugActive()) console.log("exchangeRatesResponse", "error");
             }
